@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Engineering Simulator</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <a class="skip" href="#canvas">Skip to the canvas</a>
+  <header id="topbar">
+    <div class="title">AI Engineering Simulator <span class="muted" id="mode-title"></span></div>
+    <div class="controls" role="group" aria-label="Simulation controls">
+      <button id="btn-play">⏸ Pause</button>
+      <span class="speeds" role="group" aria-label="Playback speed">
+        <button data-speed="1" class="on" aria-pressed="true">1×</button>
+        <button data-speed="2" aria-pressed="false">2×</button>
+        <button data-speed="5" aria-pressed="false">5×</button>
+      </span>
+      <button id="btn-reset">Reset sim</button>
+    </div>
+    <div class="actions" role="group" aria-label="Level actions">
+      <button id="btn-explain" hidden>Explain</button>
+      <button id="btn-glossary">Glossary</button>
+      <button id="btn-levels" hidden>Home</button>
+      <button id="btn-restart" hidden>Restart level</button>
+      <button id="btn-share" hidden>Save / Share</button>
+      <button id="btn-fit">Fit view</button>
+      <button id="btn-sound" aria-pressed="true" aria-label="Sound on" title="Sound on/off">🔊</button>
+      <button id="btn-help" aria-label="Show the tutorial" title="Tutorial">?</button>
+    </div>
+  </header>
+  <div id="main">
+    <aside id="palette" aria-label="Elements">
+      <input id="search" placeholder="Search elements…" aria-label="Search elements" />
+      <div id="palette-list"></div>
+    </aside>
+    <div id="center">
+      <div id="canvas" tabindex="-1" role="application" aria-label="Pipeline canvas. Drag elements here, or select one in the palette and press Enter.">
+        <div id="world">
+          <svg id="edges"></svg>
+          <div id="nodes"></div>
+        </div>
+        <canvas id="particles" aria-hidden="true"></canvas>
+        <div id="hint" class="muted">Drag elements onto the canvas · drag from a port to wire · Delete removes selection · scroll to zoom</div>
+        <div id="reqcard" hidden></div>
+        <div id="zoom-label"></div>
+      </div>
+      <section id="metrics" aria-label="Metrics">
+        <div class="strip-row"><div id="strip"></div><button id="btn-dash" aria-expanded="false">Details ▲</button></div>
+        <div id="dash"><div id="sparks"></div><div id="log" role="log" aria-label="Event log"></div></div>
+      </section>
+    </div>
+    <aside id="inspector" aria-label="Goals and inspector"><div id="goals" hidden></div><div id="insp-body"></div></aside>
+  </div>
+  <section id="home" hidden aria-label="Level dashboard"></section>
+  <div id="modal" hidden><div id="modal-card" role="dialog" aria-modal="true" tabindex="-1"></div></div>
+  <div id="toasts" aria-hidden="true"></div>
+  <div id="live" class="sr-only" aria-live="polite" role="status"></div>
+  <div id="coach" hidden></div>
+  <script src="js/nodes.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/engine/tuning.js"></script>
+  <script src="js/engine/metrics.js"></script>
+  <script src="js/engine/router.js"></script>
+  <script src="js/engine/behaviors.js"></script>
+  <script src="js/engine/sim.js"></script>
+  <script src="js/engine/objectives.js"></script>
+  <script src="js/campaign/learn.js"></script>
+  <script src="js/campaign/levels.js"></script>
+  <script src="js/a11y.js"></script>
+  <script src="js/sfx.js"></script>
+  <script src="js/palette.js"></script>
+  <script src="js/canvas.js"></script>
+  <script src="js/particles.js"></script>
+  <script src="js/inspector.js"></script>
+  <script src="js/dashboard.js"></script>
+  <script src="js/campaign.js"></script>
+  <script src="js/share.js"></script>
+  <script src="js/tour.js"></script>
+  <script src="js/runtime.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
